@@ -12,7 +12,6 @@ export default mergeConfig(
       },
       globals: true,
       environment: "happy-dom",
-      setupFiles: ["./vitest.setup.ts"],
       include: ["{src,tests}/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
     },
   }),

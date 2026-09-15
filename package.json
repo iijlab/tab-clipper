@@ -14,16 +14,15 @@
     "fmt:check": "oxfmt --check"
   },
   "devDependencies": {
-    "@types/chrome": "^0.2.2",
     "@types/node": "^26.1.1",
     "@vitest/coverage-istanbul": "^4.1.10",
+    "chrome-types": "^0.1.439",
     "happy-dom": "^20.11.1",
     "oxfmt": "^0.60.0",
     "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^7.0.2001",
     "typescript": "~7.0.2",
     "vite": "^8.1.4",
-    "vitest": "^4.1.10",
-    "vitest-webextension-mock": "^0.0.7"
+    "vitest": "^4.1.10"
   }
 }
