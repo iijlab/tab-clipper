@@ -1,12 +1,18 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  root: "src",
+  publicDir: resolve(__dirname, "public"),
   build: {
-    outDir: "dist",
+    outDir: resolve(__dirname, "dist"),
+    emptyOutDir: true,
     rolldownOptions: {
       input: {
-        popup: resolve(__dirname, "hello.html"),
+        popup: "hello.html",
       },
       output: {
         entryFileNames: "[name].js",
@@ -16,6 +22,8 @@ export default defineConfig({
     },
   },
   resolve: {
-    tsconfigPaths: true,
+    alias: {
+      "@": __dirname,
+    },
   },
 });

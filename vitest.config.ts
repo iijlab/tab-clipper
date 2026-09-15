@@ -5,6 +5,7 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
+      root: __dirname,
       coverage: {
         provider: "istanbul", // or 'v8'
         exclude: [...coverageConfigDefaults.exclude],
