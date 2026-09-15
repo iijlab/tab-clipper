@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import {
-  recvOffscreen,
+  receiveOffscreen,
   sendOffscreen,
   type CopyClipboardRequest,
   type CopyClipboardResponse,
@@ -42,7 +42,7 @@ describe("recvOffscreen", () => {
     const notifier: Notifier = { show };
     const offscreen: OffscreenDocumentManager = { ensure: vi.fn(), close };
 
-    await recvOffscreen({ success: false, reason: "permission denied" }, notifier, offscreen);
+    await receiveOffscreen({ success: false, reason: "permission denied" }, notifier, offscreen);
 
     expect(show).toHaveBeenCalledWith("copy-error-id", {
       type: "basic",
@@ -60,7 +60,7 @@ describe("recvOffscreen", () => {
     const notifier: Notifier = { show };
     const offscreen: OffscreenDocumentManager = { ensure: vi.fn(), close };
 
-    await recvOffscreen({ success: true, reason: "" }, notifier, offscreen);
+    await receiveOffscreen({ success: true, reason: "" }, notifier, offscreen);
 
     expect(show).not.toHaveBeenCalled();
     expect(close).toHaveBeenCalledOnce();

@@ -35,7 +35,7 @@ export async function sendOffscreen(
   return await messenger.send(request);
 }
 
-export async function recvOffscreen(
+export async function receiveOffscreen(
   response: CopyClipboardResponse,
   notifier: Notifier = new ChromeNotifier(),
   offscreen: OffscreenDocumentManager = new ChromeOffscreenDocumentManager(),

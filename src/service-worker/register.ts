@@ -1,5 +1,5 @@
 import {
-  recvOffscreen as defaultReceiveOffscreen,
+  receiveOffscreen as defaultReceiveOffscreen,
   sendOffscreen as defaultSendOffscreen,
   type CopyClipboardResponse,
 } from "@/src/messages.ts";
@@ -52,7 +52,6 @@ export function registerServiceWorker(
 
   contextMenus.onClicked((info: ContextMenuClick) => {
     if (info.menuItemId === "copy-selected-tabs") {
-      // Avoid oxlint: typescript(no-floating-promises)
       void copy();
     }
   });
