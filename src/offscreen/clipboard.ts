@@ -1,3 +1,8 @@
+/**
+ * @copyright Internet Initiative Japan Inc. All rights reserved.
+ * @license BSD-3-Clause
+ */
+
 import type { CopyClipboardResponse } from "@/src/messages.ts";
 import { DomClipboardWriter } from "@/src/extension/chrome/clipboard.ts";
 import type { ClipboardWriter } from "@/src/ports/clipboard.ts";
