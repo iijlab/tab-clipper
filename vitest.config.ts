@@ -8,7 +8,11 @@ export default mergeConfig(
       root: __dirname,
       coverage: {
         provider: "istanbul", // or 'v8'
-        exclude: [...coverageConfigDefaults.exclude],
+        exclude: [
+          ...coverageConfigDefaults.exclude,
+          "src/extension/chrome/**",
+          "src/ports/**",
+        ],
       },
       globals: true,
       environment: "happy-dom",

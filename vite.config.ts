@@ -12,7 +12,7 @@ export default defineConfig({
     emptyOutDir: true,
     rolldownOptions: {
       input: {
-        "service-worker": "service-worker.ts",
+        "service-worker": "service-worker/index.ts",
         "offscreen": "offscreen.html",
       },
       output: {

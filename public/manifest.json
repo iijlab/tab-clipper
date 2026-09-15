@@ -5,6 +5,7 @@
   "manifest_version": 3,
   "permissions": ["contextMenus", "tabs", "clipboardWrite", "offscreen", "notifications"],
   "background": {
-    "service_worker": "service-worker.js"
+    "service_worker": "service-worker.js",
+    "type": "module"
   }
 }

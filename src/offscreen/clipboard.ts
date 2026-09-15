@@ -1,31 +1,22 @@
 import type { CopyClipboardResponse } from "@/src/messages.ts";
+import { DomClipboardWriter } from "@/src/extension/chrome/clipboard.ts";
+import type { ClipboardWriter } from "@/src/ports/clipboard.ts";
 
 export async function copyClipboard(
   textArea: HTMLTextAreaElement,
   text: string,
+  clipboard: ClipboardWriter = new DomClipboardWriter(textArea),
 ): Promise<CopyClipboardResponse> {
-  textArea.value = text;
-  textArea.select();
-
-  let response: CopyClipboardResponse;
-
   try {
-    const ok = document.execCommand("copy");
-    if (ok) {
-      response = { success: true, reason: "" };
-    } else {
-      response = { success: false, reason: "Copying to the clipboard failed" };
-    }
+    const copied = await clipboard.write(text);
+    return copied
+      ? { success: true, reason: "" }
+      : { success: false, reason: "Copying to the clipboard failed" };
   } catch (err) {
     // If an exception such as a security error occurs.
     if (err instanceof Error) {
-      response = { success: false, reason: `Caught an exception: ${err.message}` };
-    } else {
-      response = { success: false, reason: "Caught an exception: unknown" };
+      return { success: false, reason: `Caught an exception: ${err.message}` };
     }
-  } finally {
-    textArea.value = "";
+    return { success: false, reason: "Caught an exception: unknown" };
   }
-
-  return response;
 }
