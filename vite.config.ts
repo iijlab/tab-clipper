@@ -12,7 +12,8 @@ export default defineConfig({
     emptyOutDir: true,
     rolldownOptions: {
       input: {
-        popup: "hello.html",
+        "service-worker": "service-worker/index.ts",
+        "offscreen": "offscreen.html",
       },
       output: {
         entryFileNames: "[name].js",

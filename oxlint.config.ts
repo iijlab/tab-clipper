@@ -33,7 +33,7 @@ export default defineConfig({
   },
   rules: {
     // *recommended*
-    "no-console": "warn",
+    // "no-console": "warn",
     "typescript/no-explicit-any": "warn",
     // plugins: import
     "import/no-duplicates": "warn",
