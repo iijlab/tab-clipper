@@ -3,7 +3,7 @@
   "description": "Copy selected tab title and url to clipboard",
   "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["contextMenus", "tabs"],
+  "permissions": ["contextMenus", "tabs", "clipboardWrite", "offscreen", "notifications"],
   "background": {
     "service_worker": "service-worker.js"
   }

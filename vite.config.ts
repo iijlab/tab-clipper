@@ -13,6 +13,7 @@ export default defineConfig({
     rolldownOptions: {
       input: {
         "service-worker": "service-worker.ts",
+        "offscreen": "offscreen.html",
       },
       output: {
         entryFileNames: "[name].js",
