@@ -12,7 +12,7 @@ export default defineConfig({
     emptyOutDir: true,
     rolldownOptions: {
       input: {
-        popup: "hello.html",
+        "service-worker": "service-worker.ts",
       },
       output: {
         entryFileNames: "[name].js",
