@@ -1,3 +1,8 @@
+/**
+ * @copyright Internet Initiative Japan Inc. All rights reserved.
+ * @license BSD-3-Clause
+ */
+
 import { describe, expect, it, vi } from "vitest";
 import { createCopySelectedTabs, registerServiceWorker } from "@/src/service-worker/register.ts";
 import type { ContextMenuClick, ContextMenuManager } from "@/src/ports/context-menu.ts";
