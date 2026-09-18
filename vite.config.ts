@@ -8,6 +8,7 @@ export default defineConfig({
   root: "src",
   publicDir: resolve(__dirname, "public"),
   build: {
+    license: { fileName: "THIRD-PARTY-LICENSES" },
     outDir: resolve(__dirname, "dist"),
     emptyOutDir: true,
     rolldownOptions: {

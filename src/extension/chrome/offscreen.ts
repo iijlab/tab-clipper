@@ -1,3 +1,8 @@
+/**
+ * @copyright Internet Initiative Japan Inc. All rights reserved.
+ * @license BSD-3-Clause
+ */
+
 import type { OffscreenDocumentManager, OffscreenDocumentOptions } from "@/src/ports/offscreen.ts";
 
 export class ChromeOffscreenDocumentManager implements OffscreenDocumentManager {

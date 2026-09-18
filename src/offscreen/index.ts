@@ -1,3 +1,8 @@
+/**
+ * @copyright Internet Initiative Japan Inc. All rights reserved.
+ * @license BSD-3-Clause
+ */
+
 import { copyClipboard } from "@/src/offscreen/clipboard.ts";
 import { ChromeRuntimeMessenger } from "@/src/extension/chrome/runtime-messaging.ts";
 import type { MessageListener } from "@/src/ports/runtime-messaging.ts";

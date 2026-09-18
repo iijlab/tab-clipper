@@ -1,3 +1,8 @@
+/**
+ * @copyright Internet Initiative Japan Inc. All rights reserved.
+ * @license BSD-3-Clause
+ */
+
 import { ChromeNotifier } from "@/src/extension/chrome/notifications.ts";
 import type { Notifier } from "@/src/ports/notifications.ts";
 import { ChromeOffscreenDocumentManager } from "@/src/extension/chrome/offscreen.ts";
