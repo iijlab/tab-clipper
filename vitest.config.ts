@@ -1,6 +1,8 @@
 import { coverageConfigDefaults, defineConfig, mergeConfig } from "vitest/config";
 import viteConfig from "./vite.config.ts";
 
+const __dirname = import.meta.dirname;
+
 export default mergeConfig(
   viteConfig,
   defineConfig({

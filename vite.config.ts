@@ -1,8 +1,7 @@
 import { defineConfig } from "vite";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = import.meta.dirname;
 
 export default defineConfig({
   root: "src",

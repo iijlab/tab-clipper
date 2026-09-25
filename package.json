@@ -16,15 +16,15 @@
     "fmt:check": "oxfmt --check"
   },
   "devDependencies": {
-    "@types/node": "^26.1.1",
-    "@vitest/coverage-istanbul": "^4.1.10",
-    "chrome-types": "^0.1.439",
-    "happy-dom": "^20.11.1",
-    "oxfmt": "^0.60.0",
-    "oxlint": "^1.75.0",
-    "oxlint-tsgolint": "^7.0.2001",
+    "@types/node": "^26.6.2",
+    "@vitest/coverage-istanbul": "^5.0.1",
+    "chrome-types": "^0.1.450",
+    "happy-dom": "^20.14.5",
+    "oxfmt": "^0.70.0",
+    "oxlint": "^1.85.0",
+    "oxlint-tsgolint": "^7.0.2002",
     "typescript": "~7.0.2",
-    "vite": "^8.1.4",
-    "vitest": "^4.1.10"
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
   }
 }
