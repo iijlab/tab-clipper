@@ -49,7 +49,7 @@ export function registerServiceWorker(
       await contextMenus.removeAll();
       contextMenus.create({
         id: "copy-selected-tabs",
-        title: "Copy to clipboard",
+        title: chrome.i18n.getMessage("title"),
         contexts: ["all"],
       });
     })();
