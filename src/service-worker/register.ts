@@ -10,6 +10,7 @@ import {
 } from "@/src/messages.ts";
 import type { OffscreenDocumentManager, OffscreenDocumentOptions } from "@/src/ports/offscreen.ts";
 import type { ContextMenuClick, ContextMenuManager } from "@/src/ports/context-menu.ts";
+import type { I18nProvider } from "@/src/ports/i18n.ts";
 
 export type CopySelectedTabs = () => Promise<void>;
 export type SendOffscreen = () => Promise<CopyClipboardResponse>;
@@ -42,6 +43,7 @@ export function createCopySelectedTabs(
 export function registerServiceWorker(
   contextMenus: ContextMenuManager,
   copy: CopySelectedTabs,
+  i18n: I18nProvider,
 ): void {
   contextMenus.onInstalled(() => {
     // Avoid duplicate errors
@@ -49,7 +51,7 @@ export function registerServiceWorker(
       await contextMenus.removeAll();
       contextMenus.create({
         id: "copy-selected-tabs",
-        title: chrome.i18n.getMessage("title"),
+        title: i18n.getMessage("title"),
         contexts: ["all"],
       });
     })();
