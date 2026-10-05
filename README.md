@@ -17,7 +17,7 @@ https://example.com/2
 The extension uses Manifest V3, a service worker, and an offscreen document to
 write to the clipboard.
 The context menu label and copy-failure notification title and message use Chrome's
-localization catalog; English is currently the only included locale.
+localization catalog; Currently, English and Japanese are included as locales.
 
 ## Prerequisites
 
