@@ -6,7 +6,7 @@
 import type { I18nProvider } from "@/src/ports/i18n.ts";
 
 export class ChromeI18nProvider implements I18nProvider {
-  getMessage(name: string): string {
-    return chrome.i18n.getMessage(name);
+  getMessage(name: string, substitution?: string): string {
+    return chrome.i18n.getMessage(name, substitution);
   }
 }

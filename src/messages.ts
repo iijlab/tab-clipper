@@ -5,6 +5,8 @@
 
 import { ChromeNotifier } from "@/src/extension/chrome/notifications.ts";
 import type { Notifier } from "@/src/ports/notifications.ts";
+import { ChromeI18nProvider } from "@/src/extension/chrome/i18n.ts";
+import type { I18nProvider } from "@/src/ports/i18n.ts";
 import { ChromeOffscreenDocumentManager } from "@/src/extension/chrome/offscreen.ts";
 import type { OffscreenDocumentManager } from "@/src/ports/offscreen.ts";
 import { ChromeRuntimeMessenger } from "@/src/extension/chrome/runtime-messaging.ts";
@@ -44,13 +46,14 @@ export async function receiveOffscreen(
   response: CopyClipboardResponse,
   notifier: Notifier = new ChromeNotifier(),
   offscreen: OffscreenDocumentManager = new ChromeOffscreenDocumentManager(),
+  i18n: I18nProvider = new ChromeI18nProvider(),
 ) {
   if (!response.success) {
     await notifier.show("copy-error-id", {
       type: "basic",
       iconUrl: "icons/error-48x48.png",
-      title: "Copy failed",
-      message: `Please make your selection again and try once more.\nError: ${response.reason}\n`,
+      title: i18n.getMessage("notifier_title"),
+      message: i18n.getMessage("notifier_message", response.reason),
       priority: 2,
     });
   }

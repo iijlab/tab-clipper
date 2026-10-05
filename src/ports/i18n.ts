@@ -4,5 +4,5 @@
  */
 
 export interface I18nProvider {
-  getMessage(name: string): string;
+  getMessage(name: string, substitution?: string): string;
 }
