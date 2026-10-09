@@ -1,0 +1,20 @@
+{
+  "title": {
+    "message": "Copy to clipboard",
+    "description": "Display context menu"
+  },
+  "notifier_title": {
+    "message": "Copy failed",
+    "description": "Title of the notification shown when copying selected tabs fails"
+  },
+  "notifier_message": {
+    "message": "Please make your selection again and try once more.\nError: $REASON$\n",
+    "description": "Notification shown when copying selected tabs fails",
+    "placeholders": {
+      "reason": {
+        "content": "$1",
+        "example": "permission denied"
+      }
+    }
+  }
+}

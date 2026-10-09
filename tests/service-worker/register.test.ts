@@ -14,6 +14,9 @@ describe("registerServiceWorker", () => {
     let installed: (() => void) | undefined;
     const removeAll = vi.fn().mockResolvedValue(undefined);
     const create = vi.fn();
+    const i18n = {
+      getMessage: vi.fn().mockReturnValue("Copy to clipboard"),
+    };
     const contextMenus: ContextMenuManager = {
       onInstalled: (listener) => {
         installed = listener;
@@ -23,11 +26,12 @@ describe("registerServiceWorker", () => {
       create,
     };
 
-    registerServiceWorker(contextMenus, vi.fn());
+    registerServiceWorker(contextMenus, vi.fn(), i18n);
     installed?.();
     await vi.waitFor(() => expect(create).toHaveBeenCalled());
 
     expect(removeAll).toHaveBeenCalledOnce();
+    expect(i18n.getMessage).toHaveBeenCalledWith("title");
     expect(create).toHaveBeenCalledWith({
       id: "copy-selected-tabs",
       title: "Copy to clipboard",
@@ -47,7 +51,7 @@ describe("registerServiceWorker", () => {
       create: vi.fn(),
     };
 
-    registerServiceWorker(contextMenus, copy);
+    registerServiceWorker(contextMenus, copy, { getMessage: vi.fn() });
     clicked?.({ menuItemId: "other-item" });
     expect(copy).not.toHaveBeenCalled();
 

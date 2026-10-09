@@ -1,0 +1,20 @@
+{
+  "title": {
+    "message": "クリップボードにコピー",
+    "description": "コンテクストメニューに表示"
+  },
+  "notifier_title": {
+    "message": "コピーに失敗しました。",
+    "description": "選択したタブのコピーが失敗した通知のタイトル"
+  },
+  "notifier_message": {
+    "message": "タブを再選択し、もう一度試してください。\nError: $REASON$\n",
+    "description": "選択したタブのコピーが失敗した通知のメッセージ",
+    "placeholders": {
+      "reason": {
+        "content": "$1",
+        "example": "permission denied"
+      }
+    }
+  }
+}

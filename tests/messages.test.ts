@@ -11,6 +11,7 @@ import {
   type CopyClipboardResponse,
 } from "@/src/messages.ts";
 import type { Notifier } from "@/src/ports/notifications.ts";
+import type { I18nProvider } from "@/src/ports/i18n.ts";
 import type { OffscreenDocumentManager } from "@/src/ports/offscreen.ts";
 import type { RuntimeMessenger } from "@/src/ports/runtime-messaging.ts";
 import type { TabReader } from "@/src/ports/tabs.ts";
@@ -46,9 +47,25 @@ describe("recvOffscreen", () => {
     const close = vi.fn();
     const notifier: Notifier = { show };
     const offscreen: OffscreenDocumentManager = { ensure: vi.fn(), close };
+    const getMessage = vi.fn((name: string) => {
+      if (name === "notifier_title") return "Copy failed";
+      if (name === "notifier_message") {
+        return "Please make your selection again and try once more.\nError: permission denied\n";
+      }
+      throw new Error(`Unexpected message key: ${name}`);
+    });
+    const i18n: I18nProvider = { getMessage };
 
-    await receiveOffscreen({ success: false, reason: "permission denied" }, notifier, offscreen);
+    await receiveOffscreen(
+      { success: false, reason: "permission denied" },
+      notifier,
+      offscreen,
+      i18n,
+    );
 
+    expect(getMessage).toHaveBeenCalledTimes(2);
+    expect(getMessage).toHaveBeenNthCalledWith(1, "notifier_title");
+    expect(getMessage).toHaveBeenNthCalledWith(2, "notifier_message", "permission denied");
     expect(show).toHaveBeenCalledWith("copy-error-id", {
       type: "basic",
       iconUrl: "icons/error-48x48.png",
@@ -64,10 +81,13 @@ describe("recvOffscreen", () => {
     const close = vi.fn();
     const notifier: Notifier = { show };
     const offscreen: OffscreenDocumentManager = { ensure: vi.fn(), close };
+    const getMessage = vi.fn();
+    const i18n: I18nProvider = { getMessage };
 
-    await receiveOffscreen({ success: true, reason: "" }, notifier, offscreen);
+    await receiveOffscreen({ success: true, reason: "" }, notifier, offscreen, i18n);
 
     expect(show).not.toHaveBeenCalled();
+    expect(getMessage).not.toHaveBeenCalled();
     expect(close).toHaveBeenCalledOnce();
   });
 });
