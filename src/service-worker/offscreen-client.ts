@@ -3,26 +3,17 @@
  * @license BSD-3-Clause
  */
 
-import { ChromeNotifier } from "@/src/extension/chrome/notifications.ts";
-import type { Notifier } from "@/src/ports/notifications.ts";
-import { ChromeI18nProvider } from "@/src/extension/chrome/i18n.ts";
-import type { I18nProvider } from "@/src/ports/i18n.ts";
-import { ChromeOffscreenDocumentManager } from "@/src/extension/chrome/offscreen.ts";
-import type { OffscreenDocumentManager } from "@/src/ports/offscreen.ts";
-import { ChromeRuntimeMessenger } from "@/src/extension/chrome/runtime-messaging.ts";
-import type { RuntimeMessenger } from "@/src/ports/runtime-messaging.ts";
-import { ChromeTabReader } from "@/src/extension/chrome/tabs.ts";
-import type { TabReader } from "@/src/ports/tabs.ts";
-
-export type CopyClipboardRequest = {
-  type: string;
-  text: string;
-};
-
-export type CopyClipboardResponse = {
-  success: boolean;
-  reason: string;
-};
+import { ChromeNotifier } from "@/src/browser/chrome/notifications.ts";
+import type { Notifier } from "@/src/browser/contracts/notifications.ts";
+import { ChromeI18nProvider } from "@/src/browser/chrome/i18n.ts";
+import type { I18nProvider } from "@/src/browser/contracts/i18n.ts";
+import { ChromeOffscreenDocumentManager } from "@/src/browser/chrome/offscreen.ts";
+import type { OffscreenDocumentManager } from "@/src/browser/contracts/offscreen.ts";
+import { ChromeRuntimeMessenger } from "@/src/browser/chrome/runtime-messaging.ts";
+import type { RuntimeMessenger } from "@/src/browser/contracts/runtime-messaging.ts";
+import { ChromeTabReader } from "@/src/browser/chrome/tabs.ts";
+import type { TabReader } from "@/src/browser/contracts/tabs.ts";
+import type { CopyClipboardRequest, CopyClipboardResponse } from "@/src/protocol/messages.ts";
 
 export async function sendOffscreen(
   tabsReader: TabReader = new ChromeTabReader(),

@@ -12,8 +12,8 @@ export default mergeConfig(
         provider: "v8",
         exclude: [
           ...coverageConfigDefaults.exclude,
-          "src/extension/chrome/**",
-          "src/ports/**",
+          "src/browser/chrome/**",
+          "src/browser/contracts/**",
         ],
       },
       globals: true,

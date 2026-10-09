@@ -3,7 +3,10 @@
  * @license BSD-3-Clause
  */
 
-import type { OffscreenDocumentManager, OffscreenDocumentOptions } from "@/src/ports/offscreen.ts";
+import type {
+  OffscreenDocumentManager,
+  OffscreenDocumentOptions,
+} from "@/src/browser/contracts/offscreen.ts";
 
 export class ChromeOffscreenDocumentManager implements OffscreenDocumentManager {
   async ensure(options: OffscreenDocumentOptions): Promise<void> {

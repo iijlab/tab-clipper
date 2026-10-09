@@ -4,9 +4,9 @@
  */
 
 import { copyClipboard } from "@/src/offscreen/clipboard.ts";
-import { ChromeRuntimeMessenger } from "@/src/extension/chrome/runtime-messaging.ts";
-import type { MessageListener } from "@/src/ports/runtime-messaging.ts";
-import type { CopyClipboardRequest, CopyClipboardResponse } from "@/src/messages.ts";
+import { ChromeRuntimeMessenger } from "@/src/browser/chrome/runtime-messaging.ts";
+import type { MessageListener } from "@/src/browser/contracts/runtime-messaging.ts";
+import type { CopyClipboardRequest, CopyClipboardResponse } from "@/src/protocol/messages.ts";
 
 const messenger = new ChromeRuntimeMessenger<CopyClipboardRequest, CopyClipboardResponse>();
 

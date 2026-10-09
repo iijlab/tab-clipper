@@ -3,9 +3,9 @@
  * @license BSD-3-Clause
  */
 
-import type { CopyClipboardResponse } from "@/src/messages.ts";
-import { DomClipboardWriter } from "@/src/extension/chrome/clipboard.ts";
-import type { ClipboardWriter } from "@/src/ports/clipboard.ts";
+import type { CopyClipboardResponse } from "@/src/protocol/messages.ts";
+import { DomClipboardWriter } from "@/src/browser/chrome/clipboard.ts";
+import type { ClipboardWriter } from "@/src/browser/contracts/clipboard.ts";
 
 export async function copyClipboard(
   textArea: HTMLTextAreaElement,

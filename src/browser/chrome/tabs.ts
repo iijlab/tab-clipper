@@ -3,7 +3,7 @@
  * @license BSD-3-Clause
  */
 
-import type { TabReader, SelectedTab } from "@/src/ports/tabs.ts";
+import type { TabReader, SelectedTab } from "@/src/browser/contracts/tabs.ts";
 
 export class ChromeTabReader implements TabReader {
   async selectedTabs(): Promise<SelectedTab[]> {

@@ -4,17 +4,13 @@
  */
 
 import { describe, expect, it, vi } from "vitest";
-import {
-  receiveOffscreen,
-  sendOffscreen,
-  type CopyClipboardRequest,
-  type CopyClipboardResponse,
-} from "@/src/messages.ts";
-import type { Notifier } from "@/src/ports/notifications.ts";
-import type { I18nProvider } from "@/src/ports/i18n.ts";
-import type { OffscreenDocumentManager } from "@/src/ports/offscreen.ts";
-import type { RuntimeMessenger } from "@/src/ports/runtime-messaging.ts";
-import type { TabReader } from "@/src/ports/tabs.ts";
+import { receiveOffscreen, sendOffscreen } from "@/src/service-worker/offscreen-client.ts";
+import type { CopyClipboardRequest, CopyClipboardResponse } from "@/src/protocol/messages.ts";
+import type { Notifier } from "@/src/browser/contracts/notifications.ts";
+import type { I18nProvider } from "@/src/browser/contracts/i18n.ts";
+import type { OffscreenDocumentManager } from "@/src/browser/contracts/offscreen.ts";
+import type { RuntimeMessenger } from "@/src/browser/contracts/runtime-messaging.ts";
+import type { TabReader } from "@/src/browser/contracts/tabs.ts";
 
 describe("sendOffscreen", () => {
   it("formats selected tabs and sends a clipboard request", async () => {
@@ -41,7 +37,7 @@ describe("sendOffscreen", () => {
   });
 });
 
-describe("recvOffscreen", () => {
+describe("receiveOffscreen", () => {
   it("notifies on copy failure and closes the offscreen document", async () => {
     const show = vi.fn();
     const close = vi.fn();

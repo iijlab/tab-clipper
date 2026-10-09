@@ -6,11 +6,14 @@
 import {
   receiveOffscreen as defaultReceiveOffscreen,
   sendOffscreen as defaultSendOffscreen,
-  type CopyClipboardResponse,
-} from "@/src/messages.ts";
-import type { OffscreenDocumentManager, OffscreenDocumentOptions } from "@/src/ports/offscreen.ts";
-import type { ContextMenuClick, ContextMenuManager } from "@/src/ports/context-menu.ts";
-import type { I18nProvider } from "@/src/ports/i18n.ts";
+} from "@/src/service-worker/offscreen-client.ts";
+import type { CopyClipboardResponse } from "@/src/protocol/messages.ts";
+import type {
+  OffscreenDocumentManager,
+  OffscreenDocumentOptions,
+} from "@/src/browser/contracts/offscreen.ts";
+import type { ContextMenuClick, ContextMenuManager } from "@/src/browser/contracts/context-menu.ts";
+import type { I18nProvider } from "@/src/browser/contracts/i18n.ts";
 
 export type CopySelectedTabs = () => Promise<void>;
 export type SendOffscreen = () => Promise<CopyClipboardResponse>;
