@@ -7,7 +7,7 @@ import type {
   ContextMenu,
   ContextMenuClick,
   ContextMenuManager,
-} from "@/src/ports/context-menu.ts";
+} from "@/src/browser/contracts/context-menu.ts";
 
 export class ChromeContextMenuManager implements ContextMenuManager {
   onInstalled(listener: () => void): void {

@@ -3,7 +3,7 @@
  * @license BSD-3-Clause
  */
 
-import type { ClipboardWriter } from "@/src/ports/clipboard.ts";
+import type { ClipboardWriter } from "@/src/browser/contracts/clipboard.ts";
 
 export class DomClipboardWriter implements ClipboardWriter {
   private readonly textArea: HTMLTextAreaElement;

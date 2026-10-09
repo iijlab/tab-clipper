@@ -7,7 +7,7 @@ import type {
   MessageListener,
   MessageResponseSender,
   RuntimeMessenger,
-} from "@/src/ports/runtime-messaging.ts";
+} from "@/src/browser/contracts/runtime-messaging.ts";
 
 export class ChromeRuntimeMessenger<Message, Response> implements RuntimeMessenger<
   Message,

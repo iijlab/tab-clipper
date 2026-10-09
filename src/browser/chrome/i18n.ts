@@ -3,7 +3,7 @@
  * @license BSD-3-Clause
  */
 
-import type { I18nProvider } from "@/src/ports/i18n.ts";
+import type { I18nProvider } from "@/src/browser/contracts/i18n.ts";
 
 export class ChromeI18nProvider implements I18nProvider {
   getMessage(name: string, substitution?: string): string {

@@ -3,7 +3,7 @@
  * @license BSD-3-Clause
  */
 
-import type { Notification, Notifier } from "@/src/ports/notifications.ts";
+import type { Notification, Notifier } from "@/src/browser/contracts/notifications.ts";
 
 export class ChromeNotifier implements Notifier {
   async show(id: string, notification: Notification): Promise<void> {

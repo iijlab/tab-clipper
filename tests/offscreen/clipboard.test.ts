@@ -5,7 +5,7 @@
 
 import { describe, expect, it, vi } from "vitest";
 import { copyClipboard } from "@/src/offscreen/clipboard.ts";
-import type { ClipboardWriter } from "@/src/ports/clipboard.ts";
+import type { ClipboardWriter } from "@/src/browser/contracts/clipboard.ts";
 
 describe("copyClipboard", () => {
   const textArea = document.createElement("textarea");

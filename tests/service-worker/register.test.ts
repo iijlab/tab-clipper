@@ -5,9 +5,9 @@
 
 import { describe, expect, it, vi } from "vitest";
 import { createCopySelectedTabs, registerServiceWorker } from "@/src/service-worker/register.ts";
-import type { ContextMenuClick, ContextMenuManager } from "@/src/ports/context-menu.ts";
-import type { OffscreenDocumentManager } from "@/src/ports/offscreen.ts";
-import type { CopyClipboardResponse } from "@/src/messages.ts";
+import type { ContextMenuClick, ContextMenuManager } from "@/src/browser/contracts/context-menu.ts";
+import type { OffscreenDocumentManager } from "@/src/browser/contracts/offscreen.ts";
+import type { CopyClipboardResponse } from "@/src/protocol/messages.ts";
 
 describe("registerServiceWorker", () => {
   it("recreates the copy menu after installation", async () => {
